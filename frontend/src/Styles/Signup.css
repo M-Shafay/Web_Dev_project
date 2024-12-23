@@ -1,0 +1,103 @@
+.Signup
+  {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+  /* Form container */
+  .signup-form {
+    background-color: #fff;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+  }
+  
+  /* Input fields */
+  .signup-input,
+  .signup-select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    color: #333;
+    box-sizing: border-box;
+  }
+  
+  .signup-input:focus,
+  .signup-select:focus {
+    border-color: #ff5a5f;
+    outline: none;
+  }
+  
+  /* Role label styling */
+  .signup-role-label {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 20px;
+  }
+  
+  /* Sign up button */
+  .signup-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #ff5a5f;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    box-sizing: border-box;
+  }
+  
+  .signup-button:hover {
+    background-color: #ff385c;
+  }
+  
+  /* Message display */
+  .signup-message {
+    color: #ff385c;
+    font-size: 14px;
+    margin-top: 10px;
+  }
+  
+  /* Link to signin page */
+  .signin-link {
+    color: #006b3f;
+    font-size: 14px;
+    text-decoration: none;
+    margin-top: 15px;
+    display: inline-block;
+  }
+  
+  .signin-link:hover {
+    text-decoration: underline;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 600px) {
+    .signup-form {
+      padding: 20px;
+      width: 90%;
+    }
+  
+    .signup-input,
+    .signup-select,
+    .signup-button {
+      font-size: 14px;
+      padding: 10px;
+    }
+  
+    .signin-link {
+      font-size: 12px;
+    }
+  }
+  

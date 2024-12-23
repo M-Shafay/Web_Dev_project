@@ -1,0 +1,296 @@
+/* Main container for Listings Page */
+.listings-page {
+  width: 100%;
+  overflow-x: hidden;
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  font-family: 'Airbnb Cereal', sans-serif;
+  background-color: #f7f7f7;
+}
+
+/* Search bar container */
+.listings-page__search-bar {
+  width: 90%;
+  margin: 20px auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 15px;
+  background-color: #ffffff;
+  border-radius: 50px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  transition: box-shadow 0.3s ease;
+}
+
+.listings-page__search-bar:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1); /* Increased shadow on hover */
+}
+
+/* Search input styling */
+.listings-page__search-bar input {
+  flex: 1;
+  width: 40%;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  padding: 12px 18px;
+  border-radius: 50px;
+  background-color: #f2f2f2;
+  margin-right: 10px;
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease;
+}
+
+.listings-page__search-bar input:hover {
+  background-color: #e0e0e0;
+}
+
+/* Search button styling */
+.listings-page__search-bar button {
+  background-color: #ff385c;
+  color: #ffffff;
+  border: none;
+  border-radius: 50px;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin-left: 10px;
+  transition: background-color 0.3s;
+}
+
+.listings-page__search-bar button:hover {
+  background-color: #e62e51;
+}
+
+/* Search type select (Dropdown) */
+.listings-page__search-type-select {
+  padding: 8px 15px;
+  font-size: 1rem;
+  border: none;
+  width: 25%;
+  border-radius: 50px;
+  background-color: #f2f2f2;
+  box-shadow: inset 0 0 3px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.listings-page__search-type-select:hover {
+  background-color: #e0e0e0;
+}
+
+/* Grid container for listings */
+.listings-page__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Adjusted minimum width */
+  gap: 30px;
+  padding: 20px 30px;
+  background-color: #ffffff;
+  border-radius: 15px;
+  margin: 0 auto 30px;
+  max-width: 1200px;
+}
+
+/* Card styling for each listing */
+.listings-page__card {
+  display:flex;
+  flex-direction: column;
+  background-color: #ffffff;
+  border-radius: 15px; /* Rounded edges */
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Soft shadow */
+}
+
+.listings-page__card:hover {
+  transform: translateY(-6px); /* Slight lift on hover */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1); /* Deeper shadow on hover */
+}
+
+/* Image styling inside the card */
+.listings-page__image 
+{ 
+  height: 220px;
+  padding: 2%;
+  object-fit: cover;
+  border-radius: 15px 15px 0 0;
+  transition: transform 0.3s ease;
+}
+
+.listings-page__card:hover .listings-page__image {
+  transform: scale(1.05); /* Slight zoom on hover */
+}
+
+/* Card details */
+.listings-page__card-content 
+{
+  padding: 2%;
+  background-color: #ffffff;
+  border-radius: 0 0 15px 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* Card title styling */
+.listings-page__card-title 
+{
+  
+  padding-left: 2%;
+  padding-top: 2%;
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: #333333;
+  margin-bottom: 5px;
+  line-height: 1.3;
+}
+
+/* Card location styling */
+.listings-page__card-location 
+{
+  padding-left:2%;
+  font-size: 1rem;
+  color: #717171;
+  margin-bottom: 5px;
+  font-weight: 500;
+  line-height: 1.4;
+}
+
+/* Card category styling */
+.listings-page__card-category {
+  
+  padding-left:2%;
+  font-size: 0.9rem;
+  color: #717171;
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+/* Price styling */
+.listings-page__card-price 
+{
+  
+  padding-left:2%;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #ff385c; /* Airbnb's signature color */
+  margin-top: 5px;
+  line-height: 1.4;
+  padding-bottom: 2%;
+}
+
+/* Message when no listings are found */
+.listings-page__no-listings-message {
+  font-size: 1.5rem;
+  text-align: center;
+  color: #999999;
+  margin-top: 30px;
+  font-weight: 500;
+}
+
+/* Title of the page */
+.listings-page__title {
+  font-size: 2.4rem;
+  text-align: center;
+  color: #333333;
+  margin-top: 40px;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.5px;
+}
+
+/* Footer styling */
+
+/* Media Query for Responsive Design */
+@media (max-width: 1080px) {
+  .listings-page__search-bar {
+    width: 85%; /* Adjust width for larger screens */
+  }
+
+  .listings-page__grid {
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); /* Adjust for medium screens */
+  }
+
+  .listings-page__card-title {
+    font-size: 1.3rem;
+  }
+
+  .listings-page__card-location,
+  .listings-page__card-category {
+    font-size: 0.9rem;
+  }
+
+  .listings-page__card-price {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .listings-page__search-bar {
+    flex-direction: column;
+    gap: 8px;
+    width: 90%;
+  }
+
+  .listings-page__grid {
+    padding: 10px;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); /* Adjust for smaller screens */
+  }
+
+  .listings-page__image {
+    height: 180px;
+  }
+
+  .listings-page__card-title {
+    font-size: 1.1rem;
+  }
+
+  .listings-page__card-location,
+  .listings-page__card-category {
+    font-size: 0.85rem;
+  }
+
+  .listings-page__card-price {
+    font-size: 1rem;
+  }
+
+  .listings-page__title {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .listings-page__search-bar {
+    width: 95%;
+  }
+
+  .listings-page__grid {
+    grid-template-columns: 1fr; /* Ensure one listing per row */
+    padding: 10px;
+  }
+
+  .listings-page__image {
+    height: 150px;
+  }
+
+  .listings-page__card-title {
+    font-size: 1rem;
+  }
+
+  .listings-page__card-location,
+  .listings-page__card-category {
+    font-size: 0.8rem;
+  }
+
+  .listings-page__card-price {
+    font-size: 1rem;
+  }
+
+  .listings-page__title {
+    font-size: 1.5rem;
+  }
+}

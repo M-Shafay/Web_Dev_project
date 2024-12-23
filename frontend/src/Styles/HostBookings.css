@@ -1,0 +1,111 @@
+/* Container Styling */
+.host-reservations-container {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  font-family: "Arial", sans-serif;
+  overflow-x: auto; /* Ensure container adapts to large tables */
+}
+
+/* Heading */
+.heading {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Status Messages */
+.status-message {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #666;
+}
+
+.status-message.error {
+  color: #d9534f;
+}
+
+/* Table Styling */
+.reservations-table {
+  width: 100%;
+  border-collapse: collapse;
+  background-color: #fff;
+}
+
+.reservations-table th,
+.reservations-table td {
+  padding: 15px;
+  text-align: left;
+  border: 1px solid #ddd;
+}
+
+.reservations-table th {
+  background-color: #f8f9fa;
+  color: #333;
+  font-weight: 600;
+}
+
+.reservations-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.reservations-table tr:hover {
+  background-color: #eaeaea;
+}
+
+/* Responsive Table */
+@media (max-width: 768px) {
+  .reservations-table {
+    display: block;
+    width: 100%;
+    overflow-x: auto; /* Scrollable for larger content */
+  }
+
+  .reservations-table thead {
+    display: none; /* Hide table headers */
+  }
+
+  .reservations-table tr {
+    display: block;
+    margin-bottom: 15px;
+    border-bottom: 1px solid #ddd;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+  }
+
+  .reservations-table td {
+    display: block;
+    font-size: 0.9rem;
+    text-align: left;
+    padding: 10px 15px;
+    position: relative;
+    border: none;
+    border-bottom: 1px solid #ddd;
+  }
+
+  .reservations-table td:last-child {
+    border-bottom: none; /* Remove border from last row */
+  }
+
+  .reservations-table td::before {
+    content: attr(data-label);
+    font-weight: bold;
+    color: #666;
+    margin-bottom: 5px;
+    display: block;
+  }
+
+  .heading {
+    font-size: 1.5rem;
+  }
+
+  .status-message {
+    font-size: 1rem;
+  }
+}
