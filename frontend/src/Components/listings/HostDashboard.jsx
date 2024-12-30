@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { useNavigate } from "react-router-dom";
+import {useNavigate} from 'react-router-dom';
 import "../../Styles/HostDashBoard.css";
 
 const AdminListings = () => {
+  const navigate = useNavigate();
   const [listings, setListings] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [editingListing, setEditingListing] = useState(null);
@@ -30,8 +31,8 @@ const AdminListings = () => {
       });
       setListings(response.data);
     } catch (error) {
+      navigate('signin');
       console.error('Error fetching listings:', error);
-      
     }
   };
 

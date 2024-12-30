@@ -5,10 +5,10 @@ import "../Styles/Navbar.css";
 const Navbar = () => {
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
-  const token = localStorage.getItem("token");
+  const [isTokenValid, setIsTokenValid] = useState(false);
 
   // Function to decode JWT and check expiration
-  const isTokenValid = (token) => {
+  const validateToken = (token) => {
     if (!token) return false;
 
     try {
@@ -22,12 +22,11 @@ const Navbar = () => {
     }
   };
 
-  const tokenIsValid = isTokenValid(token);
-
-  const handleLogout = () => {
-    localStorage.removeItem("token"); // Clear token from storage
-    navigate("/signin"); // Navigate to sign-in page
-  };
+  // Validate token on component mount and when token changes
+  useEffect(() => {
+    const token = localStorage.getItem("token");
+    setIsTokenValid(validateToken(token));
+  }, []);
 
   // Close mobile menu when the screen size exceeds 768px (desktop view)
   useEffect(() => {
@@ -36,7 +35,6 @@ const Navbar = () => {
         setMobileMenuOpen(false); // Close the menu when switching to desktop view
       }
     };
-
     window.addEventListener("resize", handleResize);
 
     // Clean up the event listener on component unmount
@@ -45,12 +43,18 @@ const Navbar = () => {
     };
   }, []);
 
+  const handleLogout = () => {
+    localStorage.removeItem("token"); // Clear token from storage
+    setIsTokenValid(false); // Update state to reflect logout
+    navigate("/signin"); // Navigate to sign-in page
+  };
+
   return (
     <nav className="navbar">
       <div className="navbar-container">
         {/* Logo */}
         <div className="logo">
-          <img src='/logo.png' alt="Airbnb Logo" />
+          <img src="/logo.png" alt="Airbnb Logo" />
           <NavLink to="/">Airbnb</NavLink>
         </div>
 
@@ -65,24 +69,34 @@ const Navbar = () => {
         {/* Navigation Links */}
         <ul className={`nav-links ${isMobileMenuOpen ? "show" : ""}`}>
           <li>
-            <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')}>Home</NavLink>
+            <NavLink to="/" className={({ isActive }) => (isActive ? 'active' : '')}>
+              Home
+            </NavLink>
           </li>
-          {!tokenIsValid ? (
+          {!isTokenValid ? (
             <>
               <li>
-                <NavLink to="/signup" className={({ isActive }) => (isActive ? 'active' : '')}>Sign Up</NavLink>
+                <NavLink to="/signup" className={({ isActive }) => (isActive ? 'active' : '')}>
+                  Sign Up
+                </NavLink>
               </li>
               <li>
-                <NavLink to="/signin" className={({ isActive }) => (isActive ? 'active' : '')}>Sign In</NavLink>
+                <NavLink to="/signin" className={({ isActive }) => (isActive ? 'active' : '')}>
+                  Sign In
+                </NavLink>
               </li>
             </>
           ) : (
             <>
               <li>
-                <NavLink to="/profile" className={({ isActive }) => (isActive ? 'active' : '')}>Profile</NavLink>
+                <NavLink to="/profile" className={({ isActive }) => (isActive ? 'active' : '')}>
+                  Profile
+                </NavLink>
               </li>
               <li>
-                <button className="logout-button" onClick={handleLogout}>Logout</button>
+                <button className="logout-button" onClick={handleLogout}>
+                  Logout
+                </button>
               </li>
             </>
           )}

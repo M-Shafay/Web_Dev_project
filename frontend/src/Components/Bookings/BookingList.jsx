@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import "../../Styles/Bookinglist.css"; // Import Airbnb-style CSS
 import { useNavigate } from "react-router-dom";
+import "../../Styles/Bookinglist.css"; // Import Airbnb-style CSS
+
 const BookingsPage = () => {
-  
   const navigate = useNavigate();
   const [userBookings, setUserBookings] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -23,8 +23,8 @@ const BookingsPage = () => {
         setUserBookings(response.data);
       } catch (error) {
         setFetchError("Failed to fetch your bookings. Please try again later.");
-        navigate("/signin"); // Redirect to sign-in page if unauthenticated
-       } finally {
+        navigate("/signin");
+      } finally {
         setLoading(false);
       }
     };

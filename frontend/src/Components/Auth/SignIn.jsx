@@ -53,9 +53,10 @@ const SignIn = () => {
 
       // Redirect user based on role
       if (res.data.role === "Host") {
-        navigate("/hostdashboard");
-      } else {
         navigate("/profile");
+      }
+      else{
+        navigate("/");
       }
     } catch (error) {
       setMessage(error.response?.data?.error || "Login failed");

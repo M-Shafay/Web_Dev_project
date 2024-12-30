@@ -1,6 +1,6 @@
 // adminRoutes.js
 const express = require('express');
-const Booking = require('../Schemas/booking');
+const Booking = require('../Schemas/booking'); //
 const Listing = require('../Schemas/listings');
 //const { getHostBookings } = require('../controllers/adminBookingController');
 const authMiddleware = require('../Authentication_Middleware/authMiddleware');

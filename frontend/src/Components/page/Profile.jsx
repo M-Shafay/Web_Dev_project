@@ -37,7 +37,7 @@ const UserProfile = () => {
         });
       } catch (error) {
         setError("Error loading profile data. Please try again.");
-        navigate("/signin");
+        navigate('/signin');
       }
     };
 
@@ -98,6 +98,7 @@ const UserProfile = () => {
       setPasswordFields({ currentPassword: "", newPassword: "", confirmPassword: "" });
     } catch (error) {
       setError("Error updating password. Please try again.");
+
     }
   };
 

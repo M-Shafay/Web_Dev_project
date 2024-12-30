@@ -1,12 +1,8 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
-
-import { useNavigate } from "react-router-dom";
 import "../../Styles/HostBookings.css"; // Airbnb-style CSS
 
 const HostReservations = () => {
-  
-  const navigate = useNavigate();
   const [reservations, setReservations] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
@@ -19,14 +15,13 @@ const HostReservations = () => {
         const response = await axios.get(
           `${import.meta.env.VITE_API_BASE_URL}/api/admin-bookings/bookings`,
           {
-            headers: { Authorization: `Bearer ${authToken}` },
+            headers: {Authorization: `Bearer ${authToken}`},
           }
         );
         setReservations(response.data);
       } catch (error) {
         setError("Failed to load reservations. Please try again later.");
         console.error("Error loading reservations:", error);
-        navigate("/signin"); // Redirect to sign-in page if unauthenticated
       } finally {
         setLoading(false);
       }

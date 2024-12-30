@@ -98,14 +98,11 @@ router.delete('/listings/:id', authMiddleware, async (req, res) => {
     if (!listing) {
       return res.status(404).json({ error: 'Listing not found' });
     }
-
-    // Ensure the user is authorized to delete the listing
     if (listing.hostId.toString() !== req.user.id) {
       return res.status(403).json({ error: 'Unauthorized action' });
     }
 
-    // Delete the listing
-    await Listing.DeleteOne({ _id: req.params.id });
+    await Listing.deleteOne({ _id: req.params.id });
 
     res.status(200).json({ message: 'Listing deleted successfully' });
   } catch (error) {

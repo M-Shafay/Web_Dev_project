@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react";
-import { useParams, Link } from "react-router-dom";
+import { useParams, Link,useNavigate } from "react-router-dom";
 import axios from "axios";
 import "../../Styles/Listingdetails.css";
 
 const PropertyDetailsPage = () => {
+  const navigate=useNavigate();
   const [property, setProperty] = useState(null);
   const [isGuest, setIsGuest] = useState(false);
   const [currentImageIndex, setCurrentImageIndex] = useState(0); // Track current slide
@@ -12,10 +13,13 @@ const PropertyDetailsPage = () => {
 
   useEffect(() => {
     const loadProperty = async () => {
-      const response = await axios.get(
+      try{const response = await axios.get(
         `${import.meta.env.VITE_API_BASE_URL}/api/listings/${id}`
       );
-      setProperty(response.data);
+      setProperty(response.data);}
+      catch(error){
+        navigate("/signin");
+      }
     };
 
     const role = localStorage.getItem("role");
