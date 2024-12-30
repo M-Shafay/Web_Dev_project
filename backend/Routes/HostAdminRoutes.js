@@ -105,7 +105,7 @@ router.delete('/listings/:id', authMiddleware, async (req, res) => {
     }
 
     // Delete the listing
-    await listing.remove();
+    await Listing.DeleteOne({ _id: req.params.id });
 
     res.status(200).json({ message: 'Listing deleted successfully' });
   } catch (error) {

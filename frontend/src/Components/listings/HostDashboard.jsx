@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-
+import { useNavigate } from "react-router-dom";
 import "../../Styles/HostDashBoard.css";
 
 const AdminListings = () => {
@@ -31,6 +31,7 @@ const AdminListings = () => {
       setListings(response.data);
     } catch (error) {
       console.error('Error fetching listings:', error);
+      
     }
   };
 

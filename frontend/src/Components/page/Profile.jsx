@@ -37,6 +37,7 @@ const UserProfile = () => {
         });
       } catch (error) {
         setError("Error loading profile data. Please try again.");
+        navigate("/signin");
       }
     };
 

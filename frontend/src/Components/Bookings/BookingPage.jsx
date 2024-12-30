@@ -1,9 +1,11 @@
 import { useState } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams,useNavigate } from "react-router-dom";
 import "../../Styles/ReservationPage.css";  // Importing the new CSS for styling
 
 const ReservationPage = () => {
+
+  const navigate = useNavigate();
   const [reservationData, setReservationData] = useState({
     checkInDate: "",
     checkOutDate: "",
@@ -29,6 +31,7 @@ const ReservationPage = () => {
     } catch (error) {
       const errorMessage = error.response?.data?.error || "Booking failed, please try again.";
       setStatusMessage(errorMessage); // Show error message
+      navigate('/signin'); // Redirect to sign-in page if unauthenticated
     }
   };
   
