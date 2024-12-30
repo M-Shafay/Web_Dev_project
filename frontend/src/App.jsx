@@ -26,7 +26,8 @@ function App() {
         <Route path="/host/bookings" element={<HostBookings />} />
         <Route path="/hostdashboard" element={<HostDashboard />} />
         <Route path="/profile" element={<Profile />} />
-      </Routes>
+      </Routes>    
+      <Footer/>
       </div>
     </Router>
   );
