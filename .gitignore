@@ -44,3 +44,7 @@ frontend/vite.config.js
 .Trashes
 ehthumbs.db
 Thumbs.db
+.env
+frontend/.env
+backend/.env
+env.*
